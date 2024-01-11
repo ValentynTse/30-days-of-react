@@ -40,7 +40,6 @@ const InputField = ({style, id, label, type, value, onChange, placeholder }) => 
       </div>
    );
 };
-
 export { InputField };
 
 const AlertBox = ({ type, message }) => {
@@ -50,5 +49,4 @@ const AlertBox = ({ type, message }) => {
       </div>
    );
 };
-
 export default AlertBox;

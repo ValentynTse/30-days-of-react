@@ -2,14 +2,9 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 
-import { MyForm } from './js/modules/form';
-
-
+import { Form } from './js/modules/form';
 import { InputField } from './js/modules/form';
 import AlertBox from './js/modules/form';
-import Button from './js/modules/button';
-
-
 import asabenehImage from './images/asabeneh.jpg';
 import htmlImg from './images/html_logo.png';
 import cssImg from './images/css_logo.png';
@@ -21,7 +16,6 @@ import reactImg from './images/react_logo.png';
 // const title = 'Getting Started React'
 // const subtitle = 'JavaScript Library'
 // const date = 'Oct 2, 2023'
-
 
 // JSX element, header
 const Header = (props) => {
@@ -41,13 +35,11 @@ const Header = (props) => {
   )
 };
 
-
 const firstName = 'Asabeneh '
 const lastName = 'Yetayeh'
 let yearBorn = 1971
 let currentYear = new Date().getFullYear()
 const age = currentYear - yearBorn
-
 let status = age >= 18
 
 const PersonAge = (props) => (
@@ -86,14 +78,10 @@ const Congrat = () => {
 // JSX element, main
 // const techs = ['HTML', 'CSS', 'JavaScript']
 // const techsFormatted = techs.map((tech) => <li key={tech}>{tech}</li>)
-
-
 const Skills = (props) => {
-  // modifying the skills array
   const skillList = props.skills.map((skill) => <li key={skill}>{skill}</li>)
   return <ul>{skillList}</ul>
 }
-
 const UserCard = () => (
   <div className='user-card'>
     <img src={asabenehImage} alt={firstName} />
@@ -116,7 +104,6 @@ const ImageGallery = () => {
     </div>
   );
 };
-
 
 const htmlLogo = (
   <div>
@@ -141,7 +128,6 @@ const reactLogo = (
 const logos = [htmlLogo, cssLogo, jsLogo, reactLogo]
 const logosFormatted = logos.map((logo) => <li key={logo}>{logo}</li>)
 
-
 const showDate = (time) => {
   const months = [
     'January',
@@ -156,12 +142,11 @@ const showDate = (time) => {
     'October',
     'November',
     'December',
-  ]
-
-  const month = months[time.getMonth()].slice(0, 3)
-  const year = time.getFullYear()
-  const date = time.getDate()
-  return ` ${month}, ${date}, ${year}`
+  ];
+  const month = months[time.getMonth()].slice(0, 3);
+  const year = time.getFullYear();
+  const date = time.getDate();
+  return ` ${month}, ${date}, ${year}`;
 }
 
 // JSX element, main
@@ -177,7 +162,6 @@ const myInputFieldStyle = {
   border: 'none',
   borderRadius: 5,
 }
-
 const MyInputField = () => {
   return (
     <div>
@@ -202,7 +186,6 @@ const hexaColor = () => {
   }
   return '#' + color
 }
-
 const bgColor = hexaColor();
 const rectangleStyle = {
   padding: '10px',
@@ -216,10 +199,9 @@ const rectangleStyle = {
 const HexaColorLine = () => {
   return <div style={rectangleStyle}>{hexaColor()}</div>
 }
-
 const buttonStyles = {
   marginTop: 40,
-  marginBottom:40,
+  marginBottom: 40,
   padding: '10px 20px',
   background: 'rgb(0, 255, 0',
   border: 'none',
@@ -232,7 +214,6 @@ const MyButton = () => {
     </div>
   )
 }
-
 const MyAlertBox = () => {
   return (
     <div>
@@ -243,7 +224,6 @@ const MyAlertBox = () => {
 }
 
 // JSX element, main
-
 const Main = () => (
   <main>
     <div className='main-wrapper'>
@@ -259,7 +239,6 @@ const Main = () => (
         skills={['HTML', 'CSS', 'JavaScript']}
       />
       <ul className='tech__logos'>{logosFormatted}</ul>
-
       <ImageGallery />
       <UserCard />
       <PersonAge
@@ -270,15 +249,12 @@ const Main = () => (
       <Status
         status={status}
       />
-      <MyForm />
+      <Form />
       <Congrat />
-
       <MyInputField />
       <MyButton />
-      <MyAlertBox/>
+      <MyAlertBox />
       <HexaColorLine />
-      
-
     </div>
   </main>
 )
@@ -304,7 +280,6 @@ const Footer = (props) => {
 // JSX element, app
 const App = () => (
   <div className='app'>
-
     <Header
       welcome='Welcome to 30 Days Of React'
       title='Getting Started React'
@@ -317,7 +292,6 @@ const App = () => (
     <Footer
       data={data}
     />
-
   </div>
 )
 
