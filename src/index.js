@@ -1,6 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
+import { CountriesList, NumbersInlineList, NumbersVerticalList, SkillsLevel } from './js/modules/arrays';
+
 
 import { Form } from './js/modules/form';
 import { InputField } from './js/modules/form';
@@ -10,6 +12,8 @@ import htmlImg from './images/html_logo.png';
 import cssImg from './images/css_logo.png';
 import jsImg from './images/js_logo.png';
 import reactImg from './images/react_logo.png';
+import { Table, ColorTable } from './js/modules/table';
+import { PopulationsTable } from './js/modules/five_most_highest_populations';
 
 // JSX element, header
 // const welcome = 'Welcome to 30 Days Of React'
@@ -156,7 +160,7 @@ const data = {
   date: new Date(),
 }
 const myInputFieldStyle = {
-  marginTop: 40,
+  marginTop: 20,
   padding: '10px 20px',
   background: '#eee',
   border: 'none',
@@ -239,7 +243,11 @@ const Main = () => (
         skills={['HTML', 'CSS', 'JavaScript']}
       />
       <ul className='tech__logos'>{logosFormatted}</ul>
+      <SkillsLevel />
       <ImageGallery />
+      <NumbersInlineList />
+      <NumbersVerticalList />
+      <CountriesList />
       <UserCard />
       <PersonAge
         firstName={firstName}
@@ -255,6 +263,15 @@ const Main = () => (
       <MyButton />
       <MyAlertBox />
       <HexaColorLine />
+      <div>
+        <h1>Colored Table</h1>
+        <Table />
+      </div>
+      <div>
+        <h1>Hexadecimal Colors</h1>
+        <ColorTable />
+      </div>      
+      <PopulationsTable  />    
     </div>
   </main>
 )
@@ -272,10 +289,7 @@ const Footer = (props) => {
       </div>
     </footer>
   )
-}
-
-
-
+};
 
 // JSX element, app
 const App = () => (
@@ -293,7 +307,7 @@ const App = () => (
       data={data}
     />
   </div>
-)
+);
 
 const root = createRoot(document.getElementById('root'));
 
