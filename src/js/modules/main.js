@@ -1,5 +1,14 @@
 import React from 'react';
 
+const Count = ({ count, addOne, minusOne }) => (
+   <div>
+      <h1>{count} </h1>
+      <div>
+         <Button text='+1' onClick={addOne} style={buttonStyles} />
+         <Button text='-1' onClick={minusOne} style={buttonStyles} />
+      </div>
+   </div>
+)
 // TechList Component
 // class base component
 class TechList extends React.Component {
@@ -50,24 +59,46 @@ class Main extends React.Component {
       super(props)
    }
    render() {
+      const {
+         techs,
+         user,
+         greetPeople,
+         handleTime,
+         changeBackground,
+         changeMode,
+         count,
+         addOne,
+         minusOne,
+      } = this.props
       return (
          <main>
             <div className='main-wrapper'>
                <p>Prerequisite to get started react.js:</p>
                <ul>
-                  <TechList techs={this.props.techs} />
+                  <TechList techs={techs} />
                </ul>
-               <UserCard user={this.props.user} />
+               <UserCard user={user} />
                <Button
                   text='Greet People'
-                  onClick={this.props.greetPeople}
+                  onClick={greetPeople}
                   style={buttonStyles}
                />
                <Button
                   text='Show Time'
-                  onClick={this.props.handleTime}
+                  onClick={handleTime}
                   style={buttonStyles}
                />
+               <Button
+                  text='Change Background'
+                  onClick={changeBackground}
+                  style={buttonStyles}
+               />
+               <Button
+                  text='Dark Mode'
+                  onClick={changeMode}
+                  style={buttonStyles}
+               />
+               <Count count={count} addOne={addOne} minusOne={minusOne} />
             </div>
          </main>
       )

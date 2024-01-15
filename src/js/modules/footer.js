@@ -8,7 +8,7 @@ class Footer extends React.Component {
    }
    render() {
       return (
-         <footer>
+         <footer className={`footer ${this.props.isDarkMode ? 'dark-mode' : ''}`}>
             <div className='footer-wrapper'>
                <p>Copyright {this.props.date.getFullYear()}</p>
             </div>

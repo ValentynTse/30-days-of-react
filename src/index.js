@@ -152,6 +152,14 @@ import { Footer } from './js/modules/footer';
 //=================================================================================
 
 class App extends React.Component {
+  state = {
+    count: 0,
+    styles: {
+      backgroundColor: '',
+      color: '',
+    },
+    isDarkMode: false,
+  }
   showDate = (time) => {
     const months = [
       'January',
@@ -173,13 +181,47 @@ class App extends React.Component {
     const date = time.getDate()
     return ` ${month} ${date}, ${year}`
   }
+  addOne = () => {
+    this.setState({ count: this.state.count + 1 })
+  }
+  // method which subtract one to the state
+  minusOne = () => {
+    this.setState({ count: this.state.count - 1 })
+  }
   handleTime = () => {
     alert(this.showDate(new Date()))
   }
   greetPeople = () => {
     alert('Welcome to 30 Days Of React Challenge, 2020')
   }
+  // Change background color
+  changeBackground = () => {
+    const hexaColor = () => {
+      let str = '0123456789abcdef';
+      let color = '';
+      for (let i = 0; i < 6; i++) {
+        let index = Math.floor(Math.random() * str.length);
+        color += str[index];
+      }
+      return '#' + color;
+    };
+    const newBackgroundColor = hexaColor();
+    this.setState({
+      styles: {
+        backgroundColor: newBackgroundColor,
+        color: 'white', // Assuming you want to set the text color to white
+      },
+    });
+  };
+
+  changeMode = () => {
+    // Toggle the dark mode
+    this.setState((prevState) => ({
+      isDarkMode: !prevState.isDarkMode,
+    }));
+  };
   render() {
+    const { isDarkMode } = this.state;
     const data = {
       welcome: 'Welcome to 30 Days Of React',
       title: 'Getting Started React',
@@ -191,19 +233,24 @@ class App extends React.Component {
       date: 'Oct 7, 2020',
     }
     const techs = ['HTML', 'CSS', 'JavaScript']
+    const date = new Date()
     // copying the author from data object to user variable using spread operator
     const user = { ...data.author, image: asabenehImage }
-
     return (
-      <div className='app'>
-        <Header data={data} />
+      <div className={`app ${isDarkMode ? 'dark-mode' : ''}`} style={this.state.styles}>
+        <Header data={data} isDarkMode={isDarkMode} />
         <Main
           user={user}
           techs={techs}
           handleTime={this.handleTime}
           greetPeople={this.greetPeople}
+          changeBackground={this.changeBackground}
+          changeMode={this.changeMode}
+          addOne={this.addOne}
+          minusOne={this.minusOne}
+          count={this.state.count}
         />
-        <Footer date={new Date()} />
+        <Footer date={new Date()} isDarkMode={isDarkMode}/>
       </div>
     )
   }

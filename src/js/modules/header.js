@@ -17,7 +17,7 @@ class Header extends React.Component {
       } = this.props.data
 
       return (
-         <header>
+         <header className={`header ${this.props.isDarkMode ? 'dark-mode' : ''}`}>
             <div className='header-wrapper'>
                <h1>{welcome}</h1>
                <h2>{title}</h2>
