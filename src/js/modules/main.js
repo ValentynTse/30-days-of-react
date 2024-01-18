@@ -9,6 +9,7 @@ const Count = ({ count, addOne, minusOne }) => (
       </div>
    </div>
 )
+
 // TechList Component
 // class base component
 class TechList extends React.Component {
@@ -57,7 +58,7 @@ const buttonStyles = {
 class Main extends React.Component {
    constructor(props) {
       super(props)
-   }
+   }   
    render() {
       const {
          techs,
@@ -66,6 +67,7 @@ class Main extends React.Component {
          handleTime,
          changeBackground,
          changeMode,
+         showRandomCountry,
          count,
          addOne,
          minusOne,
@@ -100,6 +102,11 @@ class Main extends React.Component {
                />
                <Count count={count} addOne={addOne} minusOne={minusOne} />
             </div>
+               <Button
+                  text='Show Country'
+                  onClick={showRandomCountry}
+                  style={buttonStyles}
+            />
          </main>
       )
    }

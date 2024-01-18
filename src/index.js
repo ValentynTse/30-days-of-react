@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
+import { Countries, countriesData } from './js/modules/countries';
 import asabenehImage from './images/asabeneh.jpg';
 import { Header } from './js/modules/header';
 import { Main } from './js/modules/main';
@@ -159,7 +160,8 @@ class App extends React.Component {
       color: '',
     },
     isDarkMode: false,
-  }
+    randomCountry: null,
+  };
   showDate = (time) => {
     const months = [
       'January',
@@ -213,7 +215,11 @@ class App extends React.Component {
       },
     });
   };
-
+  showRandomCountry = () => {
+    const randomIndex = Math.floor(Math.random() * countriesData.length);
+    const randomCountry = countriesData[randomIndex];
+    this.setState({ randomCountry });
+  };
   changeMode = () => {
     // Toggle the dark mode
     this.setState((prevState) => ({
@@ -221,7 +227,7 @@ class App extends React.Component {
     }));
   };
   render() {
-    const { isDarkMode } = this.state;
+    const { isDarkMode, randomCountry } = this.state;
     const data = {
       welcome: 'Welcome to 30 Days Of React',
       title: 'Getting Started React',
@@ -238,19 +244,22 @@ class App extends React.Component {
     const user = { ...data.author, image: asabenehImage }
     return (
       <div className={`app ${isDarkMode ? 'dark-mode' : ''}`} style={this.state.styles}>
-        <Header data={data} isDarkMode={isDarkMode} />
+        <Header data={data} isDarkMode={isDarkMode} />        
         <Main
+          isDarkMode={isDarkMode}
           user={user}
           techs={techs}
           handleTime={this.handleTime}
           greetPeople={this.greetPeople}
           changeBackground={this.changeBackground}
           changeMode={this.changeMode}
+          showRandomCountry={this.showRandomCountry}
           addOne={this.addOne}
           minusOne={this.minusOne}
           count={this.state.count}
-        />
-        <Footer date={new Date()} isDarkMode={isDarkMode}/>
+          />
+        {randomCountry && <Countries data={randomCountry} />}
+        <Footer date={new Date()} isDarkMode={isDarkMode} />
       </div>
     )
   }
