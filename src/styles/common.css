@@ -56,3 +56,20 @@ ul {
 ul li {
    list-style: none;
 }
+
+.app {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+}
+
+main {
+   flex: 1 1 auto;
+}
+
+.dark-mode {
+   background-color: #1a1a1a;
+   /* Dark background color */
+   color: #ffffff;
+   /* Light text color */
+}

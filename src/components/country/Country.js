@@ -18,7 +18,7 @@ const Country = ({
             </>
         ) : ('');
     return (
-        <div className='country'>
+        <div className='country' >
             <div className='country__flag'>
                 <img src={flag} alt={name} />
             </div>

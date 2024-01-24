@@ -14,6 +14,7 @@
 .country:hover {
    box-shadow: 0 0.1rem 1rem #cfc9c7;
    -webkit-transition: all 0.2s ease-in;
+   transition: all 0.2s ease-in;
    transform: scale(1.015);
 }
 

@@ -1,0 +1,62 @@
+.subscribe__form {
+   text-align: center;
+   background-color: #bcd1ee;
+   border-radius: 10px;
+   margin-top: 40px;
+   margin-bottom: 40px;
+   padding-top: 40px;
+   padding-bottom: 40px;
+}
+
+.subscribe__form h1 {
+   text-transform: uppercase;
+   font-size: 36px;
+}
+
+.subscribe__form h2 {
+   font-size: 24px;
+   margin-bottom: 20px;
+}
+
+.form__body {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 10px;
+   min-height: 40px;
+   margin-bottom: 40px;
+}
+
+form p {
+   display: inline-flex;
+   flex-direction: column;
+   text-align: left;
+   max-width: 280px;
+}
+
+form input {
+   border: 0;
+   border-radius: 5px;
+   padding: 10px 10px;
+}
+
+.subscribe__form button {
+   margin: 0 auto;
+   min-width: 180px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 10px 15px;
+   background-color: lightcoral;
+   color: white;
+   border-radius: 5px;
+   border: none;
+   transition: all 0.3s ease 0s;
+}
+
+.subscribe__form button:hover {
+   cursor: pointer;
+   color: lightcoral;
+   background-color: white;
+
+}

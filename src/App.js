@@ -6,7 +6,6 @@ import { countriesData } from './data/countries';
 import asabenehImage from './images/asabeneh.jpg';
 import { showDate } from "./utils/display-date-and-time";
 
-
 class App extends React.Component {
    state = {
       loggedIn: false,
@@ -16,7 +15,6 @@ class App extends React.Component {
       count: 0,
       country: countriesData[1],
    }
-
    addOne = () => {
       this.setState({ count: this.state.count + 1 })
    }
@@ -24,7 +22,6 @@ class App extends React.Component {
    minusOne = () => {
       this.setState({ count: this.state.count - 1 })
    }
-
    handleLogin = () => {
       this.setState({
          loggedIn: !this.state.loggedIn,
@@ -44,7 +41,11 @@ class App extends React.Component {
          isDarkMode: !prevState.isDarkMode,
       }));
    };
-
+   showRandomCountry = () => {
+      const randomIndex = Math.floor(Math.random() * countriesData.length);
+      const randomCountry = countriesData[randomIndex];
+      this.setState({ country: randomCountry });
+   };
    render() {
       const { isDarkMode } = this.state;
       const data = {
@@ -59,7 +60,6 @@ class App extends React.Component {
       }
       const techs = ['HTML', 'CSS', 'JavaScript']
       const user = { ...data.author, image: asabenehImage }
-
       return (
          <div className={`app ${isDarkMode ? 'dark-mode' : ''}`} >
             <Header data={data} isDarkMode={isDarkMode} />
@@ -73,6 +73,7 @@ class App extends React.Component {
                handleLogin={this.handleLogin}
                message={this.state.message}
                country={this.state.country}
+               showRandomCountry={this.showRandomCountry}
                user={user}
                count={this.state.count}
                addOne={this.addOne}

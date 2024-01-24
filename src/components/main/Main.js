@@ -4,8 +4,11 @@ import HexaColor from '../color/HexaColor';
 import Country from '../country/Country';
 import UserCard from '../user/UserCard';
 import { buttonStyles } from '../../styles/buttonStyles';
+import ImageGallery from '../gallery/imageGallery';
+import Form from '../shared/Form';
+import AlertBox from '../shared/AlertBox';
 
-const Count = ({ count, addOne, minusOne }) => (   
+const Count = ({ count, addOne, minusOne }) => (
    <div>
       <h1>{count} </h1>
       <div>
@@ -47,16 +50,24 @@ const Welcome = (props) => (
    </div>
 )
 
+const MyAlertBox = () => (
+   <div>
+      <AlertBox type="warning" message="This is a warning message!" />
+      <AlertBox type="success" message="This is a success message!" />
+   </div>
+);
+
+
 // Main Component
 // Class Component
 class Main extends React.Component {
    addOne = () => {
       this.props.addOne();
-    };
-  
-    minusOne = () => {
+   };
+
+   minusOne = () => {
       this.props.minusOne();
-    };
+   };
    render() {
       const {
          techs,
@@ -77,12 +88,11 @@ class Main extends React.Component {
          <main>
             <div className='main-wrapper'>
                <p>Prerequisite to get started react.js:</p>
+               <ImageGallery />
                <ul>
                   <TechList techs={this.props.techs} />
                </ul>
-
                <UserCard user={user} />
-
                {techs.length === 3 && (
                   <p>You have all the prerequisite courses to get started React</p>
                )}
@@ -119,9 +129,16 @@ class Main extends React.Component {
                   {status}
                </div>
                <Message message={message} />
-               <Count count={count} addOne={this.addOne} minusOne={this.minusOne}/>
+               <Count count={count} addOne={this.addOne} minusOne={this.minusOne} />
                <HexaColor />
                <Country country={country} />
+               <Button
+                  text='Show Random Country'
+                  onClick={this.props.showRandomCountry}
+                  style={buttonStyles}
+               />
+               <Form />
+               <MyAlertBox/>
             </div>
          </main>
       )
