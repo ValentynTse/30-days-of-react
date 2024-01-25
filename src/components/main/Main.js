@@ -1,12 +1,15 @@
 import React from 'react';
 import Button from '../shared/Button';
 import HexaColor from '../color/HexaColor';
-import Country from '../country/Country';
+import {Country} from '../country/Country';
 import UserCard from '../user/UserCard';
 import { buttonStyles } from '../../styles/buttonStyles';
 import ImageGallery from '../gallery/imageGallery';
 import Form from '../shared/Form';
 import AlertBox from '../shared/AlertBox';
+import Events from '../events/Events';
+import MouseCoordinateDisplay from '../events/MouseCoordinates'
+import FormComponent from '../events/FormComponent';
 
 const Count = ({ count, addOne, minusOne }) => (
    <div>
@@ -82,7 +85,6 @@ class Main extends React.Component {
          count,
       } = this.props
       console.log(message);
-
       const status = loggedIn ? <Welcome /> : <Login />
       return (
          <main>
@@ -138,7 +140,10 @@ class Main extends React.Component {
                   style={buttonStyles}
                />
                <Form />
-               <MyAlertBox/>
+               <MyAlertBox />
+               <Events />
+               <FormComponent />
+               <MouseCoordinateDisplay/>
             </div>
          </main>
       )

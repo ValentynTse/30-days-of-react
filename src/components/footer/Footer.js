@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const Footer =({date, isDarkMode})=>{
+class Footer extends Component{
+   render() {
+      const { date, isDarkMode } = this.props;
       return (
          <footer className={`header ${isDarkMode ? 'dark-mode' : ''}`}>
             <div className='footer-wrapper'>
@@ -8,7 +10,7 @@ const Footer =({date, isDarkMode})=>{
             </div>
          </footer>
       )
-   
-}
+   }
+} 
 
 export default Footer;
