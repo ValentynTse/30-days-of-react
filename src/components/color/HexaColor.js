@@ -21,11 +21,13 @@ class HexaColor extends Component {
     return (
       <div
         style={{
+          marginTop: 40,
+          marginBottom: 40,
           textAlign: 'center',
           border: '2px solid',
           height: 50,
           backgroundColor,
-          color:'white',
+          color: 'white',
           cursor: 'pointer',
         }}
         onClick={this.changeColor}

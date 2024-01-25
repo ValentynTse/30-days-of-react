@@ -73,3 +73,22 @@ main {
    color: #ffffff;
    /* Light text color */
 }
+.events-block{
+   h1{
+      color: red;
+   }
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   align-items: center;
+   margin-bottom: 40px;
+   input{      
+      width: 280px;
+   }
+   form div{
+      margin-bottom: 20px;
+      input{
+         background-color: rgb(221, 221, 236);
+      }
+   }
+}

@@ -1,6 +1,4 @@
-import React from 'react';
-
-const Country = ({
+export const Country = ({
     country: { name, flag },
 }) => {
     const formattedName =
@@ -30,5 +28,3 @@ const Country = ({
         </div>
     )
 };
-
-export default Country;
