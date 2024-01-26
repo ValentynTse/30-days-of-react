@@ -13,6 +13,7 @@ import FormComponent from '../events/FormComponent';
 import FirstNameForm from '../forms/FirstNameForm';
 import MultipleInputForm from '../forms/MultipleInputForm';
 import DifferentInputsForm from '../forms/DifferentInputsForm';
+import UncontrolledInput from '../forms/UncontrolledInput';
 
 const Count = ({ count, addOne, minusOne }) => (
    <div>
@@ -94,6 +95,7 @@ class Main extends React.Component {
             <div className='main-wrapper'>
                <p>Prerequisite to get started react.js:</p>
                <p>FORMS:</p>
+               <UncontrolledInput/>
                <FirstNameForm />
                <MultipleInputForm />
                <DifferentInputsForm/>
