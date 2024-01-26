@@ -34,12 +34,6 @@ form p {
    max-width: 280px;
 }
 
-form input {
-   border: 0;
-   border-radius: 5px;
-   padding: 10px 10px;
-}
-
 .subscribe__form button {
    margin: 0 auto;
    min-width: 180px;
