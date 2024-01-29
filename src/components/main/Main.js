@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import Button from '../shared/Button';
 import HexaColor from '../color/HexaColor';
 import {Country} from '../country/Country';
@@ -14,6 +14,7 @@ import FirstNameForm from '../forms/FirstNameForm';
 import MultipleInputForm from '../forms/MultipleInputForm';
 import DifferentInputsForm from '../forms/DifferentInputsForm';
 import UncontrolledInput from '../forms/UncontrolledInput';
+import LifeCycles, { CallUsingFetch, ComponentUpdate, Constructor, DidMountMethod, GetDerivedState } from '../lifeCycles/LifeCycles';
 
 const Count = ({ count, addOne, minusOne }) => (
    <div>
@@ -24,10 +25,9 @@ const Count = ({ count, addOne, minusOne }) => (
       </div>
    </div>
 )
-
 // TechList Component
 // class base component
-class TechList extends React.Component {
+class TechList extends Component {
    render() {
       const { techs } = this.props
       const techsFormatted = techs.map((tech) => <li key={tech}>{tech}</li>)
@@ -63,15 +63,12 @@ const MyAlertBox = () => (
       <AlertBox type="success" message="This is a success message!" />
    </div>
 );
-
-
 // Main Component
 // Class Component
-class Main extends React.Component {
+class Main extends Component {
    addOne = () => {
       this.props.addOne();
    };
-
    minusOne = () => {
       this.props.minusOne();
    };
@@ -94,6 +91,12 @@ class Main extends React.Component {
          <main>
             <div className='main-wrapper'>
                <p>Prerequisite to get started react.js:</p>
+               <LifeCycles />
+               <Constructor />
+               <GetDerivedState firstName='Asabeneh' />
+               <DidMountMethod />
+               <ComponentUpdate/>
+               <CallUsingFetch/>
                <p>FORMS:</p>
                <UncontrolledInput/>
                <FirstNameForm />
