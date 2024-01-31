@@ -15,6 +15,7 @@ import MultipleInputForm from '../forms/MultipleInputForm';
 import DifferentInputsForm from '../forms/DifferentInputsForm';
 import UncontrolledInput from '../forms/UncontrolledInput';
 import LifeCycles, { CallUsingFetch, ComponentUpdate, Constructor, DidMountMethod, GetDerivedState } from '../lifeCycles/LifeCycles';
+import BestInput from '../HOC/highOrderedComponents';
 
 const Count = ({ count, addOne, minusOne }) => (
    <div>
@@ -97,6 +98,7 @@ class Main extends Component {
                <DidMountMethod />
                <ComponentUpdate/>
                <CallUsingFetch/>
+               <BestInput/>
                <p>FORMS:</p>
                <UncontrolledInput/>
                <FirstNameForm />
