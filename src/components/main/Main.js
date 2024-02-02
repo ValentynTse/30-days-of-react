@@ -90,7 +90,7 @@ class Main extends Component {
       const status = loggedIn ? <Welcome /> : <Login />
       return (
          <main>
-            <div className='main-wrapper'>
+            <div className='main-wrapper'>               
                <p>Prerequisite to get started react.js:</p>
                <LifeCycles />
                <Constructor />
